@@ -39,7 +39,7 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
                                   WebDataBinderFactory binderFactory) throws Exception {
 
         //取出鉴权时存入的登录用户Id
-        Long currentUserId = (Long) webRequest.getAttribute(Constants.CURRENT_USER_ID, RequestAttributes.SCOPE_GLOBAL_SESSION);
+        Long currentUserId = (Long) webRequest.getAttribute(Constants.CURRENT_USER_ID, RequestAttributes.SCOPE_REQUEST);
         if (currentUserId != null) {
             return userRepository.findById(currentUserId);
         }

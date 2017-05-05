@@ -46,6 +46,12 @@ public class TokenController {
         return new ResponseEntity(ResultModel.ok(model), HttpStatus.OK);
     }
 
+    @RequestMapping(name = "/logup", method = RequestMethod.POST)
+    public ResponseEntity signup() {
+
+        return new ResponseEntity(ResultModel.ok(), HttpStatus.OK);
+    }
+
     @RequestMapping(method = RequestMethod.DELETE)
     @Authorization
     public ResponseEntity logout(@CurrentUser User user) {

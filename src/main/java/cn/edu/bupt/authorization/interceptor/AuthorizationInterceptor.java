@@ -52,7 +52,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return false;
         }
-        return true;
+        return false;
     }
 
 }

@@ -7,7 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -37,18 +39,19 @@ public class MvcConfig extends WebMvcConfigurerAdapter{
         argumentResolvers.add(currentUserMethodArgumentResolver);
     }
 
+/*
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
         return new JedisConnectionFactory();
     }
+*/
 
-    @Bean
-    RedisTemplate<Long, String> redisTemplate() {
-        final RedisTemplate<Long, String> template =  new RedisTemplate<>();
+ /*   @Bean
+    StringRedisTemplate redisTemplate() {
+        final RedisTemplate<String, String> template =  new RedisTemplate<>();
         template.setConnectionFactory(jedisConnectionFactory() );
-        template.setKeySerializer( new JdkSerializationRedisSerializer() );
-//        template.setHashValueSerializer( new GenericToStringSerializer< Long >( Long.class ) );
-//        template.setValueSerializer( new GenericToStringSerializer< Long >( Long.class ) );
+        template.setKeySerializer( new StringRedisSerializer() );
+        template.setValueSerializer(new StringRedisSerializer());
         return template;
-    }
+    }*/
 }
