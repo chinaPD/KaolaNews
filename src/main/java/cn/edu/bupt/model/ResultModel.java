@@ -1,4 +1,4 @@
-package com.example.token;
+package cn.edu.bupt.model;
 
 /**
  * Created by hadoop on 17-5-3.

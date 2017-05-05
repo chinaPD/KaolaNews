@@ -1,5 +1,6 @@
 package cn.edu.bupt;
 
+import cn.edu.bupt.authorization.MvcConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KaolaNews  {
 
     public static void main(String[] args) {
-        SpringApplication.run(KaolaNews.class, args);
+        Object[] sources = {KaolaNews.class, MvcConfig.class};
+        SpringApplication.run(sources, args);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.config;
+package cn.edu.bupt.config;
 
 /**
  * Created by hadoop on 17-5-4.

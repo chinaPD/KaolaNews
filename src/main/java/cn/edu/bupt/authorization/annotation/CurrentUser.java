@@ -1,4 +1,4 @@
-package com.example.token;
+package cn.edu.bupt.authorization.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

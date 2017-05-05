@@ -1,9 +1,10 @@
 package cn.edu.bupt;
 
-import com.example.User;
-import com.example.UserRepository;
-import com.example.UserService;
-import com.example.UserServiceImpl;
+
+import cn.edu.bupt.domain.User;
+import cn.edu.bupt.repository.UserRepository;
+import cn.edu.bupt.service.UserService;
+import cn.edu.bupt.service.impl.UserServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

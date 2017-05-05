@@ -1,7 +1,13 @@
-package com.example.token;
+package cn.edu.bupt.controller;
 
-import com.example.User;
-import com.example.UserRepository;
+import cn.edu.bupt.authorization.annotation.Authorization;
+import cn.edu.bupt.authorization.annotation.CurrentUser;
+import cn.edu.bupt.authorization.manager.TokenManager;
+import cn.edu.bupt.authorization.model.TokenModel;
+import cn.edu.bupt.domain.User;
+import cn.edu.bupt.model.ResultStatus;
+import cn.edu.bupt.model.ResultModel;
+import cn.edu.bupt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,13 +42,14 @@ public class TokenController {
             return  new ResponseEntity(ResultModel.error(ResultStatus.USERNAME_OR_PASSWORD_ERROR), HttpStatus.NOT_FOUND);
         }
 
-        TokenModel model = tokenManager.createToken(user.getUserId());
+        TokenModel model = tokenManager.createToken(user.getId());
         return new ResponseEntity(ResultModel.ok(model), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public ResponseEntity logout(User user) {
-        tokenManager.deleteToken(user.getUserId());
+    @Authorization
+    public ResponseEntity logout(@CurrentUser User user) {
+        tokenManager.deleteToken(user.getId());
         return new ResponseEntity(ResultModel.ok(), HttpStatus.OK);
     }
 }

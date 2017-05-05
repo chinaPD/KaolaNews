@@ -1,8 +1,9 @@
-package com.example.token;
+package cn.edu.bupt.authorization.manager.impl;
 
+import cn.edu.bupt.authorization.manager.TokenManager;
+import cn.edu.bupt.authorization.model.TokenModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -12,15 +13,18 @@ import java.util.concurrent.TimeUnit;
  * Created by hadoop on 17-5-3.
  */
 @Component
-public class RedisTokenManager implements TokenManager{
+public class RedisTokenManager implements TokenManager {
 
-    private RedisTemplate redis;
     @Autowired
+    private RedisTemplate<Long, String> redis;
+
+  /*  @Autowired
     public void setRedis (RedisTemplate redis) {
         this.redis = redis;
         // 泛型设置成 Long 后必须更改对应的序列化方案
         redis.setKeySerializer (new JdkSerializationRedisSerializer());
-    }
+    }*/
+
     public TokenModel createToken (long userId) {
         // 使用 uuid 作为源 token
         String token = UUID.randomUUID ().toString ().replace ("-", "");
@@ -42,6 +46,7 @@ public class RedisTokenManager implements TokenManager{
         String token = param [1];
         return new TokenModel (userId, token);
     }
+
     public boolean checkToken (TokenModel model) {
         if (model == null) {
             return false;

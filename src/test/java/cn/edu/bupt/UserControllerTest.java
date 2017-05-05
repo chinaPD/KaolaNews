@@ -1,8 +1,8 @@
 package cn.edu.bupt;
 
-import com.example.User;
-import com.example.UserController;
-import com.example.UserService;
+import cn.edu.bupt.controller.UserController;
+import cn.edu.bupt.domain.User;
+import cn.edu.bupt.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

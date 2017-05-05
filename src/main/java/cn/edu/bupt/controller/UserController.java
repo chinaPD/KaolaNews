@@ -1,6 +1,7 @@
-package com.example;
+package cn.edu.bupt.controller;
 
-import com.sun.org.apache.regexp.internal.RE;
+import cn.edu.bupt.domain.User;
+import cn.edu.bupt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
