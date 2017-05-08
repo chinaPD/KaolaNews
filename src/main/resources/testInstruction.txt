@@ -1,0 +1,5 @@
+curl -d "username=admin&password=password" "http://localhost:8080/tokens"
+
+curl -X DELETE "http://localhost:8080/tokens"
+
+curl -H "authorization:1_5be2d59a26a24fed824e49e0a58f7053" "http://localhost:8080/news/recommend"

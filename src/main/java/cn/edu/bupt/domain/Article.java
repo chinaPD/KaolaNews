@@ -2,6 +2,7 @@ package cn.edu.bupt.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "articles_")
 public class Article {
 
-
+    @Id
     @Column(name = "id")
     private long id;
 
@@ -24,11 +25,14 @@ public class Article {
     @Column(name = "summary")
     private String summary;
 
-    @Column(name = "add_time")
-    private String add_time;
+    @Column(name = "typelabel")
+    private String typelabel;
 
-    @Column(name = "update_time")
-    private String update_time;
+    @Column(name = "addtime")
+    private String addtime;
+
+    @Column(name = "updatetime")
+    private String updatetime;
 
     @Column(name = "uri")
     private String uri;
@@ -50,12 +54,16 @@ public class Article {
         this.summary = summary;
     }
 
-    public void setAdd_time(String add_time) {
-        this.add_time = add_time;
+    public void setTypelabel(String typelabel) {
+        this.typelabel = typelabel;
     }
 
-    public void setUpdate_time(String update_time) {
-        this.update_time = update_time;
+    public void setAddtime(String addtime) {
+        this.addtime = addtime;
+    }
+
+    public void setUpdatetime(String updatetime) {
+        this.updatetime = updatetime;
     }
 
     public void setUri(String uri) {
@@ -78,12 +86,16 @@ public class Article {
         return summary;
     }
 
-    public String getAdd_time() {
-        return add_time;
+    public String getTypelabel() {
+        return typelabel;
     }
 
-    public String getUpdate_time() {
-        return update_time;
+    public String getAddtime() {
+        return addtime;
+    }
+
+    public String getUpdatetime() {
+        return updatetime;
     }
 
     public String getUri() {
