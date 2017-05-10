@@ -11,24 +11,24 @@ import javax.validation.constraints.Max;
  */
 
 @Entity
-@Table(name = "user_")
+@Table(name = "user")
 public class User {
 
     //用户名
-    @Column(name = "username_")
+    @Column(name = "username")
     private String username;
 
     //密码
-    @Column(name = "password_")
+    @Column(name = "password")
     private String password;
 
     //用户id
     @Id
-    @Column(name = "id_")
+    @Column(name = "id")
     private long id;
 
     //昵称
-    @Column(name = "nickname_")
+    @Column(name = "nickname")
     private String nickname;
 
     public String getUsername() {

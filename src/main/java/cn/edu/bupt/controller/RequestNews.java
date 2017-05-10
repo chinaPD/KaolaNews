@@ -17,6 +17,7 @@ import java.util.List;
 /**
  * Created by hadoop on 17-5-8.
  */
+
 @RestController
 @RequestMapping("/news")
 public class RequestNews {
