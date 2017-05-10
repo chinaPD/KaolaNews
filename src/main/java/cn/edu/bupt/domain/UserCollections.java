@@ -1,9 +1,7 @@
 package cn.edu.bupt.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by hadoop on 17-5-10.
@@ -11,7 +9,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "collection")
-public class UserCollections {
+@IdClass(CollectionPrimaryKey.class)
+public class UserCollections implements Serializable{
 
     @Id
     @Column(name = "userId")

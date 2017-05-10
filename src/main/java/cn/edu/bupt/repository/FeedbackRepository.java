@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface FeedbackRepository extends CrudRepository<UserFeedBack, Long> {
 
-    public UserFeedBack save(UserFeedBack feedBack);
+    UserFeedBack save(UserFeedBack feedBack);
 }

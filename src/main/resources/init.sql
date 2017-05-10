@@ -15,7 +15,7 @@ create table user (
 CREATE TABLE article (
   id int unsigned auto_increment,
   author nvarchar(20),
-  titile nvarchar(200) not null,
+  ti2tle nvarchar(200) not null,
   summary nvarchar(500),
   typelabel nvarchar(20),
   addtime datetime,

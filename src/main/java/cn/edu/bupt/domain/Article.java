@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by hadoop on 17-5-5.
  */
 @Entity
-@Table(name = "articles_")
+@Table(name = "article")
 public class Article {
 
     @Id
@@ -19,7 +19,7 @@ public class Article {
     @Column(name = "author")
     private String author;
 
-    @Column(name = "titile")
+    @Column(name = "title")
     private String title;
 
     @Column(name = "summary")

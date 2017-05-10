@@ -20,7 +20,7 @@ public class UserFeedBack {
     @Column(name = "userId")
     private long userId;
 
-    @Column(name = "errorType")
+    @Column(name = "errortype")
     private String errorType;
 
     @Column(name = "content")
@@ -50,7 +50,6 @@ public class UserFeedBack {
     }
 
     public long getId() {
-
         return id;
     }
 
