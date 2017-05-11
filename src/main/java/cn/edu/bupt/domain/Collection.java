@@ -10,14 +10,14 @@ import java.io.Serializable;
 @Entity
 @Table(name = "collection")
 @IdClass(CollectionPrimaryKey.class)
-public class UserCollections implements Serializable{
+public class Collection implements Serializable{
 
     @Id
-    @Column(name = "userId")
+    @Column(name = "userid")
     private long userId;
 
     @Id
-    @Column(name = "articleId")
+    @Column(name = "articleid")
     private long articleId;
 
     @Column(name = "addtime")

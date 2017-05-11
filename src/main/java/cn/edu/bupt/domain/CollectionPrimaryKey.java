@@ -6,12 +6,15 @@ import java.io.Serializable;
  * Created by hadoop on 17-5-10.
  */
 
-public class CollectionPrimaryKey implements Serializable{
+public class CollectionPrimaryKey implements Serializable {
 
-    protected int userId;
-    protected int articleId;
+    protected long userId;
+    protected long articleId;
 
-    public CollectionPrimaryKey(int userId, int articleId) {
+    public CollectionPrimaryKey() {
+    }
+
+    public CollectionPrimaryKey(long userId, long articleId) {
         this.userId = userId;
         this.articleId = articleId;
     }
@@ -34,8 +37,8 @@ public class CollectionPrimaryKey implements Serializable{
     @Override
     public int hashCode() {
         int result = 17;
-        result = result * 37 + this.userId;
-        result = result * 37 + this.articleId;
+        result = result * 37 + (int)(this.userId ^ (this.userId >>> 32));
+        result = result * 37 + (int)(this.articleId ^ (this.articleId >>> 32));
         return result;
     }
 }

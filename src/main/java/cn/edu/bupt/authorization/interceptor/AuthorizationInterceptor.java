@@ -4,6 +4,7 @@ import cn.edu.bupt.authorization.annotation.Authorization;
 import cn.edu.bupt.authorization.manager.TokenManager;
 import cn.edu.bupt.authorization.model.TokenModel;
 import cn.edu.bupt.config.Constants;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -34,6 +35,10 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         HandlerMethod handlerMethod = (HandlerMethod)handler;
         Method method = handlerMethod.getMethod();
 
+        if (method.getAnnotation(Authorization.class) == null) {
+            return true;
+        }
+
         //从header中得到token
         String authorization = request.getHeader(Constants.AUTHORIZATION);
         System.out.println(Constants.AUTHORIZATION + ":  " + authorization);
@@ -48,11 +53,13 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         }
 
         //如果验证token失败，并且方法注明了Authorization，返回401错误
-        if (method.getAnnotation(Authorization.class) != null) {
+  /*      if (method.getAnnotation(Authorization.class) != null) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return false;
-        }
-        return true;
+        }*/
+
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        return false;
     }
 
 }
